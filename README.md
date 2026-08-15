@@ -1,7 +1,7 @@
 # Voxel React
 
-`@fithub/voxel-react` provides React components for rendering the Three.js
-objects produced by `@fithub/voxel-core`.
+`@procura/voxel-react` provides React components for rendering the Three.js
+objects produced by `@procura/voxel-core`.
 
 It owns browser and React concerns such as the canvas, renderer lifecycle,
 camera, orbital controls, resize handling, selection, and step-by-step
@@ -25,8 +25,8 @@ Or declare both package names explicitly:
 ```json
 {
   "dependencies": {
-    "@fithub/voxel-core": "github:chl-latam/voxel-core#v0.1.0",
-    "@fithub/voxel-react": "github:chl-latam/voxel-react#v0.1.0"
+    "@procura/voxel-core": "github:chl-latam/voxel-core#v0.1.0",
+    "@procura/voxel-react": "github:chl-latam/voxel-react#v0.1.0"
   }
 }
 ```
@@ -34,7 +34,7 @@ Or declare both package names explicitly:
 ## Usage
 
 ```tsx
-import { PackingVisualizer } from "@fithub/voxel-react";
+import { PackingVisualizer } from "@procura/voxel-react";
 
 <PackingVisualizer
   box={packingResult.boxes[0]}
@@ -55,4 +55,4 @@ npm run check
 
 ## License
 
-MIT © Fithub
+MIT © CHL Group

@@ -1,4 +1,4 @@
-import type { PackedBox } from "@fithub/voxel-core";
+import type { PackedBox } from "@procura/voxel-core";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 

@@ -1,4 +1,4 @@
-import { createPackingGroup, type PackedBox } from "@fithub/voxel-core";
+import { createPackingGroup, type PackedBox } from "@procura/voxel-core";
 import {
   useEffect,
   useRef,

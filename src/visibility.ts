@@ -1,4 +1,4 @@
-import type { PackedBox } from "@fithub/voxel-core";
+import type { PackedBox } from "@procura/voxel-core";
 
 export function visiblePlacementCount(
   box: PackedBox,

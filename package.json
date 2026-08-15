@@ -1,9 +1,19 @@
 {
-  "name": "@fithub/voxel-react",
+  "name": "@procura/voxel-react",
   "version": "0.1.0",
   "description": "React components for visualizing Voxel packing results",
   "type": "module",
   "license": "MIT",
+  "author": "CHL Group",
+  "keywords": [
+    "procura",
+    "voxel",
+    "react",
+    "three.js",
+    "3d",
+    "bin-packing",
+    "visualization"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chl-latam/voxel-react.git"
@@ -29,7 +39,7 @@
     }
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts --clean --external react --external react-dom --external three --external @fithub/voxel-core",
+    "build": "tsup src/index.ts --format esm --dts --clean --external react --external react-dom --external three --external @procura/voxel-core",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -40,14 +50,17 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@fithub/voxel-core": "^0.1.0",
+    "@procura/voxel-core": "^0.1.0",
     "react": ">=18 <20",
     "react-dom": ">=18 <20",
     "three": ">=0.170 <1"
   },
+  "overrides": {
+    "esbuild": "^0.28.1"
+  },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
-    "@fithub/voxel-core": "file:../voxel-core",
+    "@procura/voxel-core": "file:../voxel-core",
     "@testing-library/react": "^16.0.0",
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
