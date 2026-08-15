@@ -3,7 +3,18 @@
   "version": "0.1.0",
   "description": "React components for visualizing Voxel packing results",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chl-latam/voxel-react.git"
+  },
+  "homepage": "https://github.com/chl-latam/voxel-react#readme",
+  "bugs": {
+    "url": "https://github.com/chl-latam/voxel-react/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "sideEffects": false,
   "files": [
     "dist"
@@ -23,6 +34,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
+    "prepare": "npm run build",
     "test": "vitest run --coverage",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"

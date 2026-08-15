@@ -8,6 +8,29 @@ camera, orbital controls, resize handling, selection, and step-by-step
 visibility. It does not call the Voxel API and does not know about Atlas,
 stores, catalogs, or temporary boxes.
 
+## Installation
+
+Install tagged releases directly from GitHub together with their peer
+dependencies:
+
+```bash
+npm install \
+  github:chl-latam/voxel-core#v0.1.0 \
+  github:chl-latam/voxel-react#v0.1.0 \
+  react react-dom three
+```
+
+Or declare both package names explicitly:
+
+```json
+{
+  "dependencies": {
+    "@fithub/voxel-core": "github:chl-latam/voxel-core#v0.1.0",
+    "@fithub/voxel-react": "github:chl-latam/voxel-react#v0.1.0"
+  }
+}
+```
+
 ## Usage
 
 ```tsx
@@ -29,3 +52,7 @@ The component fills its parent. Give its container an explicit height.
 npm install
 npm run check
 ```
+
+## License
+
+MIT © Fithub
