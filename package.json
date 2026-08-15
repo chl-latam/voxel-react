@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
-    "@procura/voxel-core": "file:../voxel-core",
+    "@procura/voxel-core": "github:chl-latam/voxel-core#v0.1.0",
     "@testing-library/react": "^16.0.0",
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
