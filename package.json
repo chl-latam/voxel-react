@@ -1,6 +1,6 @@
 {
   "name": "@procura/voxel-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "React components for visualizing Voxel packing results",
   "type": "module",
   "license": "MIT",
@@ -50,7 +50,7 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@procura/voxel-core": "^0.1.0",
+    "@procura/voxel-core": "^0.2.0",
     "react": ">=18 <20",
     "react-dom": ">=18 <20",
     "three": ">=0.170 <1"
@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
-    "@procura/voxel-core": "github:chl-latam/voxel-core#v0.1.0",
+    "@procura/voxel-core": "github:chl-latam/voxel-core#v0.2.0",
     "@testing-library/react": "^16.0.0",
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",

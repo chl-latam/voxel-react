@@ -2,6 +2,11 @@
 
 All notable changes will be documented in this file.
 
+## 0.2.0 - 2026-08-16
+
+- Expose configurable item-face opacity and per-placement edge outlines.
+- Preserve the configured face and edge opacity when selecting an item.
+
 ## 0.1.0 - 2026-08-15
 
 - Initial public release.

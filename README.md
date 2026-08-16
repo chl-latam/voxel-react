@@ -15,8 +15,8 @@ dependencies:
 
 ```bash
 npm install \
-  github:chl-latam/voxel-core#v0.1.0 \
-  github:chl-latam/voxel-react#v0.1.0 \
+  github:chl-latam/voxel-core#v0.2.0 \
+  github:chl-latam/voxel-react#v0.2.0 \
   react react-dom three
 ```
 
@@ -25,8 +25,8 @@ Or declare both package names explicitly:
 ```json
 {
   "dependencies": {
-    "@procura/voxel-core": "github:chl-latam/voxel-core#v0.1.0",
-    "@procura/voxel-react": "github:chl-latam/voxel-react#v0.1.0"
+    "@procura/voxel-core": "github:chl-latam/voxel-core#v0.2.0",
+    "@procura/voxel-react": "github:chl-latam/voxel-react#v0.2.0"
   }
 }
 ```
@@ -41,10 +41,17 @@ import { PackingVisualizer } from "@procura/voxel-react";
   showContainer
   selectedItemId="SKU-123"
   visiblePlacementCount={5}
+  itemOpacity={0.86}
+  showItemEdges
+  itemEdgeColor="#1f2937"
+  itemEdgeOpacity={0.55}
 />;
 ```
 
 The component fills its parent. Give its container an explicit height.
+Translucent item faces and per-placement edge outlines are enabled by default,
+making repeated and stacked units easier to distinguish. All four appearance
+props are optional.
 
 ## Development
 

@@ -1,8 +1,16 @@
-import type { PackedBox } from "@procura/voxel-core";
+import { createPackingGroup, type PackedBox } from "@procura/voxel-core";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { PackingVisualizer } from "../src/index.js";
+
+vi.mock("@procura/voxel-core", async (importOriginal) => {
+  const original = await importOriginal<typeof import("@procura/voxel-core")>();
+  return {
+    ...original,
+    createPackingGroup: vi.fn(original.createPackingGroup),
+  };
+});
 
 vi.mock("three", async (importOriginal) => {
   const original = await importOriginal<typeof import("three")>();
@@ -64,5 +72,27 @@ describe("PackingVisualizer", () => {
       }),
     ).toBeInstanceOf(HTMLCanvasElement);
     expect(box).toEqual(original);
+  });
+
+  it("forwards item face and edge appearance options to Voxel Core", () => {
+    render(
+      <PackingVisualizer
+        box={box}
+        itemOpacity={0.72}
+        showItemEdges
+        itemEdgeColor="#ffffff"
+        itemEdgeOpacity={0.35}
+      />,
+    );
+
+    expect(vi.mocked(createPackingGroup)).toHaveBeenLastCalledWith(
+      expect.objectContaining({ box_id: "small" }),
+      expect.objectContaining({
+        itemOpacity: 0.72,
+        showItemEdges: true,
+        itemEdgeColor: "#ffffff",
+        itemEdgeOpacity: 0.35,
+      }),
+    );
   });
 });

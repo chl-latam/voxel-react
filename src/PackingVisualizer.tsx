@@ -24,6 +24,10 @@ import { visiblePlacementCount } from "./visibility.js";
 export interface PackingVisualizerProps {
   box: PackedBox;
   showContainer?: boolean;
+  itemOpacity?: number;
+  showItemEdges?: boolean;
+  itemEdgeColor?: string;
+  itemEdgeOpacity?: number;
   selectedItemId?: string;
   visiblePlacementCount?: number;
   backgroundColor?: string;
@@ -36,6 +40,10 @@ export interface PackingVisualizerProps {
 export function PackingVisualizer({
   box,
   showContainer = true,
+  itemOpacity = 0.86,
+  showItemEdges = true,
+  itemEdgeColor = "#1f2937",
+  itemEdgeOpacity = 0.55,
   selectedItemId,
   visiblePlacementCount: requestedVisibleCount,
   backgroundColor = "#f7f8fa",
@@ -75,7 +83,13 @@ export function PackingVisualizer({
         ...box,
         placements: box.placements.slice(0, visibleCount),
       };
-      group = createPackingGroup(visibleBox, { showContainer });
+      group = createPackingGroup(visibleBox, {
+        showContainer,
+        itemOpacity,
+        showItemEdges,
+        itemEdgeColor,
+        itemEdgeOpacity,
+      });
       applySelection(group, selectedItemId);
       scene.add(group);
 
@@ -131,6 +145,10 @@ export function PackingVisualizer({
   }, [
     box,
     showContainer,
+    itemOpacity,
+    showItemEdges,
+    itemEdgeColor,
+    itemEdgeOpacity,
     selectedItemId,
     requestedVisibleCount,
     backgroundColor,
@@ -157,17 +175,26 @@ function applySelection(
     return;
   }
   root.traverse((object) => {
-    if (object.userData.role !== "item") {
+    if (
+      object.userData.role !== "item" &&
+      object.userData.role !== "item-edge"
+    ) {
       return;
     }
     const item = object as typeof object & { material: Material | Material[] };
     const selected = object.userData.itemId === selectedItemId;
+    const baseOpacity =
+      typeof object.userData.baseOpacity === "number"
+        ? object.userData.baseOpacity
+        : 1;
     const materials = Array.isArray(item.material)
       ? item.material
       : [item.material];
     for (const material of materials) {
-      material.transparent = !selected;
-      material.opacity = selected ? 1 : 0.2;
+      material.transparent = baseOpacity < 1 || !selected;
+      material.opacity = selected
+        ? baseOpacity
+        : Math.min(0.2, baseOpacity * 0.25);
     }
   });
 }
